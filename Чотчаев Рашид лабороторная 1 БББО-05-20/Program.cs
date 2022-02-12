@@ -20,7 +20,7 @@ namespace Чотчаев_Рашид_лабороторная_1_БББО_05_20
           mode = Convert.ToInt32(Console.ReadLine());
           if (mode < 1 || mode > 5)
           {
-            throw new ArgumentException("Режимов всего два оло");
+            throw new ArgumentException();
           }
           goodInput = true;
         }
@@ -59,10 +59,10 @@ namespace Чотчаев_Рашид_лабороторная_1_БББО_05_20
             Program3.Run();
             break;
           case 4:
-
+            Program4.Run();
             break;
           case 5:
-
+            Program5.Run();
             break;
 
         }

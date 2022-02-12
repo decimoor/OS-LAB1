@@ -13,7 +13,7 @@ namespace Чотчаев_Рашид_лабороторная_1_БББО_05_20
   {
     private static readonly int TIME_TO_CREATE_GHOUL_CLASS_INSTANCE = 3;
 
-    static private void SimulateProccess(string firstToWrite, int howManyDots, float loadingLenght)
+    static public void SimulateProccess(string firstToWrite, int howManyDots, float loadingLenght)
     {
       DateTime now = DateTime.Now;
 
