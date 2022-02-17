@@ -8,35 +8,26 @@ namespace Чотчаев_Рашид_лабороторная_1_БББО_05_20
 {
   internal class Program5
   {
-    static public string originDirectory = "Folder";
-    static public string destinationDirectory = "Folder";
+    static public string directoryPath = "Folder";
+    static public string archivePath = "Folder.zip";
     static public void Run()
     {
-      if (!Directory.Exists(originDirectory))
+      try
       {
-        DirectoryInfo di = Directory.CreateDirectory(originDirectory);
+        ZipFile.CreateFromDirectory(directoryPath, archivePath);
+      }
+      catch (IOException e)
+      {
+        Console.WriteLine("Такой архив уже существует");
       }
 
-      ZipFile.CreateFromDirectory(originDirectory, destinationDirectory);
-
-
-
-      
-    }
-
-    public static void Compress(string sourceFile, string compressedFile)
-    {
-      using (FileStream sourceStream = new FileStream(sourceFile, FileMode.OpenOrCreate))
+      using (ZipArchive zipArchive = ZipFile.Open(archivePath, ZipArchiveMode.Update))
       {
-        using (FileStream targetStream = File.Create(compressedFile))
-        {
-          using (GZipStream compressedStream = new GZipStream(targetStream, CompressionMode.Decompress))
-          {
-            sourceStream.CopyTo(compressedStream);
-            Console.WriteLine($"Размер исходного файла: {sourceStream.Length.ToString()}. Размер сжатого файла: {targetStream.Length.ToString()}");
-          }
-        }
-      }
+        const string filePath = @"C:\\Users\\star platinum\\Downloads\\file.txt";
+        const string fileName = "brothers.txt";
+
+        zipArchive.CreateEntryFromFile(filePath, fileName);
+       }
     }
   }
 }
