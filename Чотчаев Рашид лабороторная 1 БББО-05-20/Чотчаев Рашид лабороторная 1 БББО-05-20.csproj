@@ -6,4 +6,8 @@
     <RootNamespace>Чотчаев_Рашид_лабороторная_1_БББО_05_20</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+  </ItemGroup>
+
 </Project>
